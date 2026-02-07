@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dqsi0s43tu3qf"]
+
+[ext_resource type="Texture2D" uid="uid://cfnaprnn4mbiw" path="res://Placeholder Sprites/pixel-black.png" id="1_coiv7"]
+[ext_resource type="Script" uid="uid://b2t1kdvqck44r" path="res://Scripts/fly_spawner.gd" id="1_h0sn3"]
+
+[node name="Node2D" type="Node2D" unique_id=22806698]
+script = ExtResource("1_h0sn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2089273815]
+scale = Vector2(5, 5)
+texture = ExtResource("1_coiv7")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=6250688]
+wait_time = 3.0
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

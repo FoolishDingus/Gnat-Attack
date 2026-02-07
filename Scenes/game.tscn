@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b5bx47g2siwcj"]
+
+[ext_resource type="PackedScene" uid="uid://3fliyiisxpmv" path="res://Scenes/player.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://b8nnmhwkt57sy" path="res://Scenes/flower.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://dqsi0s43tu3qf" path="res://Scenes/fly_spawner.tscn" id="4_3dryh"]
+[ext_resource type="PackedScene" uid="uid://b1xcxxvkdwfcb" path="res://Scenes/fly.tscn" id="4_fc0e3"]
+
+[node name="Node2D" type="Node2D" unique_id=644006510]
+
+[node name="Player" parent="." unique_id=1630018609 instance=ExtResource("2_feb5d")]
+
+[node name="Fly" parent="." unique_id=887670320 instance=ExtResource("4_fc0e3")]
+position = Vector2(229, 161)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1101561859]
+z_index = -1
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.7713109, 0.43999514, 0.16673091, 1)
+
+[node name="Flowers" type="Node" parent="." unique_id=492129610]
+
+[node name="Flower" parent="Flowers" unique_id=1513489 instance=ExtResource("3_3dryh")]
+position = Vector2(320, 160)
+
+[node name="Flower2" parent="Flowers" unique_id=1653799863 instance=ExtResource("3_3dryh")]
+position = Vector2(238, 256)
+
+[node name="Flower3" parent="Flowers" unique_id=1369911588 instance=ExtResource("3_3dryh")]
+position = Vector2(383, 258)
+
+[node name="Spawner" parent="." unique_id=22806698 instance=ExtResource("4_3dryh")]
+position = Vector2(93, 80)

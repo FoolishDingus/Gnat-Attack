@@ -1,15 +1,19 @@
 extends Sprite2D
 
-# todo
 #region New Code Region
-# fly movement
-# flower script
-# fly spawners to instantiate flies
-# score system in global script
-# fail state for all flowers dying
-# backup to github
+# added:
+# debug fly movement
+# flowers can now be attacked and killed
+# added counter in global script that tracks how many flowers are left
+# created fly spawners to instantiate flies
 
-# maybe add bait: placed with right click, nearby flys target it for easy kills, limited to 3 per run
+# todo
+# automate fly movement (add target_position placed on the nearest flower, move randomly in a set range towards target)
+# add fail state for all flowers dying
+# score system in global script (add UI nodes to player?)
+# add main menu with screen settings
+
+# maybe add fruit bait: placed with right click, nearby flys target it for easy kills, limited to 3 per run
 #endregion
 
 # Called when the node enters the scene tree for the first time.

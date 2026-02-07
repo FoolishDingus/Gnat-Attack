@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://b1xcxxvkdwfcb"]
 
 [ext_resource type="Texture2D" uid="uid://dq07r8g10jdge" path="res://Sprites/Fly-Sheet.png" id="1_k8qhs"]
-[ext_resource type="Script" uid="uid://b5yja7fpqlpoq" path="res://fly.gd" id="1_npdyd"]
+[ext_resource type="Script" uid="uid://b5yja7fpqlpoq" path="res://Scripts/fly.gd" id="1_npdyd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npdyd"]
 radius = 5.0
 
 [node name="Fly" type="CharacterBody2D" unique_id=189697561]
+z_index = 1
 script = ExtResource("1_npdyd")
 
 [node name="FlySprite" type="Sprite2D" parent="." unique_id=2088058501]
@@ -19,3 +20,5 @@ hframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlyHitbox" unique_id=1360879551]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_npdyd")
+
+[connection signal="area_entered" from="FlyHitbox" to="." method="attack_flower"]
