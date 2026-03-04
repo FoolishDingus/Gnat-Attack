@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var hp : int = 100
+@onready var hp : int = 500
 @onready var is_attacked : bool = false
 @onready var is_flower_alive : bool = true
 @onready var hitbox : Area2D = $FlowerHitbox
@@ -8,6 +8,7 @@ extends Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.flowers_left += 1 # used to keep track of alive flowers in global.gd
+	Global.update_flower_count()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,8 +47,12 @@ func dead():
 	frame = 2                    # dead sprite
 	Global.flowers_left -= 1     # reduce global flowers_left by 1 in global script
 	Global.update_flower_count() # change visible counter
-	await get_tree().create_timer(2).timeout # wait to despawn
-	queue_free() # despawn
+	if Global.flowers_left == 0: # if else used to prevent going to lose screen too early
+		await get_tree().create_timer(2).timeout # wait to despawn
+		get_tree().change_scene_to_file.call_deferred("res://Scenes/lose_screen.tscn") # load lose screen at end of frame
+	else:
+		await get_tree().create_timer(2).timeout # wait to despawn
+		queue_free() # despawn
 
 
 func debug():

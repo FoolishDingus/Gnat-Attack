@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://uame1ixh1n3n"]
 
-[ext_resource type="Script" uid="uid://bx5o5l4cx0bb7" path="res://Scripts/global.gd" id="1_jxero"]
+[ext_resource type="Script" uid="uid://cv8aaqaw6o3sr" path="res://Scripts/hud.gd" id="1_e0onf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0onf"]
+line_spacing = 0.0
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=1639400123]
-script = ExtResource("1_jxero")
+script = ExtResource("1_e0onf")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=247412945]
+unique_name_in_owner = true
+offset_left = 5.0
+offset_right = 96.0
+offset_bottom = 46.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Flowers Left: 
+Score: "
+label_settings = SubResource("LabelSettings_e0onf")

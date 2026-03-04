@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4x154v5c5kq"
-path="res://.godot/imported/pixel-transparent.png-8a73d6aaf44c508edd1a73312f77e1c8.ctex"
+uid="uid://bxxncywra083q"
+path="res://.godot/imported/Score Sprites.png-7a48a425c6e2e5e262af2a78db517fc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Placeholder Sprites/pixel-transparent.png"
-dest_files=["res://.godot/imported/pixel-transparent.png-8a73d6aaf44c508edd1a73312f77e1c8.ctex"]
+source_file="res://Sprites/Score Sprites.png"
+dest_files=["res://.godot/imported/Score Sprites.png-7a48a425c6e2e5e262af2a78db517fc3.ctex"]
 
 [params]
 

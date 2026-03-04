@@ -2,9 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dq07r8g10jdge" path="res://Sprites/Fly-Sheet.png" id="1_k8qhs"]
 [ext_resource type="Script" uid="uid://b5yja7fpqlpoq" path="res://Scripts/fly.gd" id="1_npdyd"]
+[ext_resource type="Texture2D" uid="uid://c44tmh6l6kh75" path="res://Debug Sprites/pixel-white.png" id="3_3o03e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npdyd"]
 radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cu1fa"]
+radius = 500.0
 
 [node name="Fly" type="CharacterBody2D" unique_id=189697561]
 z_index = 1
@@ -21,4 +25,13 @@ hframes = 3
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_npdyd")
 
-[connection signal="area_entered" from="FlyHitbox" to="." method="attack_flower"]
+[node name="NoticeRange" type="Area2D" parent="." unique_id=1659995222]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeRange" unique_id=48092196]
+visible = false
+shape = SubResource("CircleShape2D_cu1fa")
+
+[node name="Target" type="Sprite2D" parent="." unique_id=1197540141]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("3_3o03e")

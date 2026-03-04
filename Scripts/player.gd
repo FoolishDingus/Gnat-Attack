@@ -2,17 +2,18 @@ extends Sprite2D
 
 #region New Code Region
 # added:
-# debug fly movement
-# flowers can now be attacked and killed
-# added counter in global script that tracks how many flowers are left
-# created fly spawners to instantiate flies
+# automated fly movement
+# lose screen when all flowers are dead
+# score system
+# high score is saved to a highscore.save file to remember your best score between sessions
 
 # todo
-# automate fly movement (add target_position placed on the nearest flower, move randomly in a set range towards target)
-# add fail state for all flowers dying
-# score system in global script (add UI nodes to player?)
+# improve fly AI by having them randomly change direction on their way to flowers
+# have spawners move around to make it harder to predict where flies come from, maybe move in circles
 # add main menu with screen settings
+# add movement code to fly spawners
 
+# maybe randomize spawn timer to make it harder to keep track of spawn rates
 # maybe add fruit bait: placed with right click, nearby flys target it for easy kills, limited to 3 per run
 #endregion
 
@@ -21,13 +22,18 @@ extends Sprite2D
 # link child nodes to variables so you don't have to call them constantly
 @onready var hitbox : Area2D = $AttackArea
 
+func _ready() -> void:
+	# swatter follows mouse, hide mouse, make score and flowers left visible
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Global.flower_label.visible = true
+	Global.score_label.visible = true
+	Global.high_score_label.visible = true
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	mouse_position = get_viewport().get_mouse_position() # keeps track of mouse
 	position = mouse_position
-	#SetPosition(global_position, mouse_position)
-	#move_and_slide()
-	#print(str(get_local_mouse_position()))
+	
 	if Input.is_action_just_pressed("left_click"):
 		attack()
 
