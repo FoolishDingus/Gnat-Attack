@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://b6a8ndoeohpri"]
 
 [ext_resource type="Script" uid="uid://b6w0clwqxyd01" path="res://Scripts/lose_screen.gd" id="1_s2rrh"]
-[ext_resource type="Texture2D" uid="uid://bxxncywra083q" path="res://Sprites/Score Sprites.png" id="2_488pv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y0hrf"]
-outline_size = 3
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_488pv"]
+font_color = Color(1, 1, 0.21960784, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [node name="Control" type="Control" unique_id=237363840]
 layout_mode = 3
@@ -16,12 +22,14 @@ script = ExtResource("1_s2rrh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1020173508]
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 648.0
+offset_bottom = 368.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0.60192686, 0.27343652, 0.262665, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1580089335]
+[node name="GameOver" type="Label" parent="." unique_id=1580089335]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -51,15 +59,58 @@ anchor_top = 4.4125
 anchor_right = 8.0
 anchor_bottom = 4.425
 offset_left = -45.0
-offset_top = -24.5
+offset_top = -16.5
 offset_right = 45.0
-offset_bottom = 25.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-text = "Final Score:
+text = "Final Score: 0
 "
 label_settings = SubResource("LabelSettings_y0hrf")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HighScore" type="Label" parent="." unique_id=16359654]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.012
+anchor_top = 5.6120005
+anchor_right = 8.012
+anchor_bottom = 5.6120005
+offset_left = -51.48001
+offset_top = -11.480011
+offset_right = 49.51999
+offset_bottom = 11.519989
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "High Score: 0"
+label_settings = SubResource("LabelSettings_y0hrf")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NewHighScore" type="Label" parent="." unique_id=1540892962]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 8.0
+anchor_top = 3.3125
+anchor_right = 8.0
+anchor_bottom = 3.325
+offset_left = -63.0
+offset_top = 67.5
+offset_right = 63.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "New High Score!"
+label_settings = SubResource("LabelSettings_488pv")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -96,13 +147,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "Main Menu"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1005053436]
-visible = false
-texture_filter = 1
-position = Vector2(320, 136)
-texture = ExtResource("2_488pv")
-vframes = 3
 
 [connection signal="button_up" from="RetryButton" to="." method="retry_button"]
 [connection signal="button_up" from="MenuButton" to="." method="menu_button"]

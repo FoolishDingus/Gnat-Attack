@@ -32,6 +32,12 @@ visible = false
 shape = SubResource("CircleShape2D_cu1fa")
 
 [node name="Target" type="Sprite2D" parent="." unique_id=1197540141]
+visible = false
 texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("3_3o03e")
+
+[node name="DirectionTimer" type="Timer" parent="." unique_id=2129829654]
+wait_time = 0.05
+one_shot = true
+autostart = true

@@ -19,15 +19,16 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_hbmji")
 
 [node name="HP" type="Label" parent="." unique_id=198876585]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -26.0
-offset_top = -27.0
+offset_top = -17.0
 offset_right = -6.0
-offset_bottom = -16.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 7

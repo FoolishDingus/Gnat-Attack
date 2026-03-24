@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxxncywra083q"
-path="res://.godot/imported/Score Sprites.png-7a48a425c6e2e5e262af2a78db517fc3.ctex"
+uid="uid://b17jatcxytagq"
+path="res://.godot/imported/GnatAttack_Logo.png-88fed0eb561c8be044332d0705062468.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Score Sprites.png"
-dest_files=["res://.godot/imported/Score Sprites.png-7a48a425c6e2e5e262af2a78db517fc3.ctex"]
+source_file="res://Sprites/GnatAttack_Logo.png"
+dest_files=["res://.godot/imported/GnatAttack_Logo.png-88fed0eb561c8be044332d0705062468.ctex"]
 
 [params]
 

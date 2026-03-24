@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://uame1ixh1n3n"]
 
-[ext_resource type="Script" uid="uid://cv8aaqaw6o3sr" path="res://Scripts/hud.gd" id="1_e0onf"]
+[ext_resource type="FontFile" uid="uid://dum5mnam4ge4f" path="res://Sprites/Jersey10-Regular.ttf" id="1_e0onf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e0onf"]
 line_spacing = 0.0
-outline_size = 3
+paragraph_spacing = -5.0
+font = ExtResource("1_e0onf")
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=1639400123]
-script = ExtResource("1_e0onf")
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=247412945]
-unique_name_in_owner = true
+texture_filter = 1
 offset_left = 5.0
 offset_right = 96.0
 offset_bottom = 46.0

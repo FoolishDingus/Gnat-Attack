@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://3fliyiisxpmv" path="res://Scenes/player.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://b8nnmhwkt57sy" path="res://Scenes/flower.tscn" id="3_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dqsi0s43tu3qf" path="res://Scenes/fly_spawner.tscn" id="4_3dryh"]
-[ext_resource type="PackedScene" uid="uid://b1xcxxvkdwfcb" path="res://Scenes/fly.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://uame1ixh1n3n" path="res://Scenes/hud.tscn" id="5_wowpa"]
 
 [node name="Level1" type="Node2D" unique_id=644006510]
@@ -12,13 +11,13 @@ script = ExtResource("1_i6g32")
 
 [node name="Player" parent="." unique_id=1630018609 instance=ExtResource("2_feb5d")]
 
-[node name="Fly" parent="." unique_id=887670320 instance=ExtResource("4_fc0e3")]
-position = Vector2(229, 161)
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1101561859]
 z_index = -1
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 648.0
+offset_bottom = 368.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0.7713109, 0.43999514, 0.16673091, 1)
 
 [node name="Flowers" type="Node" parent="." unique_id=492129610]
@@ -35,16 +34,21 @@ position = Vector2(383, 258)
 [node name="Spawners" type="Node" parent="." unique_id=319615443]
 
 [node name="Spawner1" parent="Spawners" unique_id=22806698 instance=ExtResource("4_3dryh")]
-position = Vector2(40, 80)
-movement_direction = "up/down"
+position = Vector2(-10, 80)
+movement_type = "up/down"
 
 [node name="Spawner2" parent="Spawners" unique_id=2102975842 instance=ExtResource("4_3dryh")]
-position = Vector2(300, 80)
-movement_direction = "left/right"
+position = Vector2(320, -5)
+enabled = false
+enable_timer = 60.0
+movement_type = "left/right"
 
 [node name="Spawner3" parent="Spawners" unique_id=596082439 instance=ExtResource("4_3dryh")]
-position = Vector2(600, 80)
-movement_direction = "up/down"
+position = Vector2(650, 80)
+enable_timer = 5.0
+movement_type = "up/down"
 
 [node name="UI" parent="." unique_id=1639400123 instance=ExtResource("5_wowpa")]
-visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1627913483]
+offset = Vector2(320, 180)

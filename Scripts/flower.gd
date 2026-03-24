@@ -8,7 +8,6 @@ extends Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.flowers_left += 1 # used to keep track of alive flowers in global.gd
-	Global.update_flower_count()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,14 +38,14 @@ func _process(_delta: float) -> void:
 			is_flower_alive = false # stop above code from running after dying
 			dead()                  # switch to dead sprite and disappear
 	
-	debug()
+	#debug()
 
 
 func dead():
 	hitbox.monitoring = false
 	frame = 2                    # dead sprite
 	Global.flowers_left -= 1     # reduce global flowers_left by 1 in global script
-	Global.update_flower_count() # change visible counter
+	owner.update_hud()           # updates flowers left counter on HUD
 	if Global.flowers_left == 0: # if else used to prevent going to lose screen too early
 		await get_tree().create_timer(2).timeout # wait to despawn
 		get_tree().change_scene_to_file.call_deferred("res://Scenes/lose_screen.tscn") # load lose screen at end of frame
