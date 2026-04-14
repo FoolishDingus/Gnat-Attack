@@ -13,7 +13,4 @@ texture = ExtResource("1_coiv7")
 [node name="SpawnTimer" type="Timer" parent="." unique_id=6250688]
 wait_time = 3.0
 
-[node name="EnableTimer" type="Timer" parent="." unique_id=510580045]
-one_shot = true
-
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

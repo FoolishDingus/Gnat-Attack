@@ -9,7 +9,7 @@ const HIGHSCORE = "user://highscore.save" # location of file that saves high sco
 @onready var fullscreen_on : bool = false
 @onready var current_resolution : Vector2i = Vector2i(1280,720)
 @onready var resolution_key : int = 1 # defaults to value 1 from dropdown menu (720p is currently index 1)
-# to see file: C:\Users\user_name_here\AppData\Roaming\Godot\app_userdata\CIS 434 Project
+# to see save file: C:\Users\user_name_here\AppData\Roaming\Godot\app_userdata\CIS 434 Project
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -13,10 +13,15 @@ script = ExtResource("1_i6g32")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1101561859]
 z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 648.0
 offset_bottom = 368.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0.7713109, 0.43999514, 0.16673091, 1)
 
@@ -52,3 +57,9 @@ movement_type = "up/down"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1627913483]
 offset = Vector2(320, 180)
+
+[node name="SpeedupTimer" type="Timer" parent="." unique_id=1814442299]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="SpeedupTimer" to="." method="_on_speedup_timer_timeout"]

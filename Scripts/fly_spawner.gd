@@ -7,12 +7,13 @@ extends Node2D
 @onready var starting_position : Vector2 = global_position
 @export_enum ("none", "up/down", "left/right") var movement_type : String = "none" # sets which movement_direction spawners move
 @onready var movement_direction : int = 1
-const SPEED : int = 3 
+var fly_speed : float = 2
+const SPEED : int = 3 # speed spawners move offscreen (movement makes it harder to tell where flies are coming from)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if enable_timer > 0:
-		await  get_tree().create_timer(enable_timer).timeout # wait to activate before spawning flies
+		await get_tree().create_timer(enable_timer).timeout # wait to activate before spawning flies
 		enabled = true
 	spawn_timer.start()
 
@@ -42,3 +43,5 @@ func _on_spawn_timer_timeout() -> void:
 		add_child.call_deferred(instance)    # add fly to current scene
 		instance.global_position = global_position # spawn fly at current position of spawner
 		instance.top_level = true                  # stops spawned flies from moving whenever the spawner moves
+		if fly_speed != instance.speed:
+			instance.speed = fly_speed             # changes speed of flys if speedup timer has ended

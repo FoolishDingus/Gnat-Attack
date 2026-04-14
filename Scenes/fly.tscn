@@ -3,12 +3,57 @@
 [ext_resource type="Texture2D" uid="uid://dq07r8g10jdge" path="res://Sprites/Fly-Sheet.png" id="1_k8qhs"]
 [ext_resource type="Script" uid="uid://b5yja7fpqlpoq" path="res://Scripts/fly.gd" id="1_npdyd"]
 [ext_resource type="Texture2D" uid="uid://c44tmh6l6kh75" path="res://Debug Sprites/pixel-white.png" id="3_3o03e"]
+[ext_resource type="AudioStream" uid="uid://ds1s63bawiwqf" path="res://Sounds/freesound_community-splat-6831.mp3" id="4_vyrwt"]
+[ext_resource type="Script" uid="uid://b8ppkqf5f3vnh" path="res://Scripts/sfx_manager.gd" id="5_p3uj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npdyd"]
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cu1fa"]
 radius = 500.0
+
+[sub_resource type="Animation" id="Animation_3o03e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vyrwt"]
+resource_name = "flying"
+length = 0.3
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3uj0"]
+_data = {
+&"RESET": SubResource("Animation_3o03e"),
+&"flying": SubResource("Animation_vyrwt")
+}
+
+[sub_resource type="Curve" id="Curve_3o03e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.20224726), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Fly" type="CharacterBody2D" unique_id=189697561]
 z_index = 1
@@ -41,3 +86,24 @@ texture = ExtResource("3_3o03e")
 wait_time = 0.05
 one_shot = true
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1329654021]
+libraries/ = SubResource("AnimationLibrary_p3uj0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=506356542]
+emitting = false
+amount = 3
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_3o03e")
+
+[node name="SplatSFX" type="AudioStreamPlayer" parent="." unique_id=930011394]
+stream = ExtResource("4_vyrwt")
+volume_db = -8.0
+script = ExtResource("5_p3uj0")

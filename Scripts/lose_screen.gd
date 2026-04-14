@@ -11,6 +11,7 @@ func _ready() -> void:
 		Global.update_high_score()
 	else:
 		$HighScore.text = "High Score: " + str(Global.high_score)
+	$GameOverSFX.play()
 
 
 func retry_button() -> void:

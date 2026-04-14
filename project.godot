@@ -15,7 +15,7 @@ config/tags=PackedStringArray("project")
 run/main_scene="uid://ckiqwavgty4wb"
 config/features=PackedStringArray("4.6", "Mobile")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="uid://yyu10ffeowto"
 
 [autoload]
 
@@ -26,6 +26,7 @@ Global="*uid://bx5o5l4cx0bb7"
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/resizable=false
+window/size/always_on_top=true
 window/size/sharp_corners=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

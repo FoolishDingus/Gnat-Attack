@@ -13,9 +13,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=247412945]
 texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 5.0
-offset_right = 96.0
-offset_bottom = 46.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "Flowers Left: 
 Score: "

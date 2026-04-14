@@ -2,9 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://cllmf7l7p0p0t" path="res://Sprites/Flower-Sheet.png" id="1_s3cv5"]
 [ext_resource type="Script" uid="uid://iqk8lqnop6uv" path="res://Scripts/flower.gd" id="2_4r3j5"]
+[ext_resource type="AudioStream" uid="uid://btj1dgiyuwa2n" path="res://Sounds/freesound_community-reverb-89603.mp3" id="3_hbmji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbmji"]
 size = Vector2(16, 23)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4r3j5"]
+bg_color = Color(0.77319574, 0, 0.1938273, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbmji"]
+bg_color = Color(0.4226691, 0.68953645, 0.42590487, 1)
 
 [node name="Flower" type="Sprite2D" unique_id=1513489]
 texture_filter = 1
@@ -18,20 +25,32 @@ script = ExtResource("2_4r3j5")
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_hbmji")
 
-[node name="HP" type="Label" parent="." unique_id=198876585]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1291695607]
 visible = false
+z_index = 2
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -26.0
-offset_top = -17.0
+offset_top = -15.0
 offset_right = -6.0
-offset_bottom = -6.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 7
-text = "HP: "
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_4r3j5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hbmji")
+show_percentage = false
 
-[connection signal="area_entered" from="FlowerHitbox" to="." method="flower_attacked"]
+[node name="HealthBarTimer" type="Timer" parent="HealthBar" unique_id=1337824539]
+wait_time = 3.0
+one_shot = true
+
+[node name="FlowerDiesSFX" type="AudioStreamPlayer" parent="." unique_id=1300493367]
+stream = ExtResource("3_hbmji")
+volume_db = -10.0
+
+[connection signal="timeout" from="HealthBar/HealthBarTimer" to="." method="healthbar_visibility_timeup"]
