@@ -4,8 +4,8 @@ extends Control
 @onready var resolution_button : OptionButton = $ColorRect/VBoxContainer/ResolutionButton
 @onready var fullscreen_button : CheckButton = $ColorRect/VBoxContainer/FullscreenButton
 @onready var resolutions = {
-	#"3840x2160": Vector2i(3840, 2160),
-	#"2560x1440": Vector2i(2560, 1440),
+	"3840x2160": Vector2i(3840, 2160),
+	"2560x1440": Vector2i(2560, 1440),
 	"1920x1080": Vector2i(1920, 1080),
 	"1280x720": Vector2i(1280, 720),
 	"640x360": Vector2i(640, 360)

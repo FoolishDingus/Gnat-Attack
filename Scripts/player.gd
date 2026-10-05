@@ -16,7 +16,10 @@ extends Sprite2D
 # maybe randomize spawn timer to make it harder to keep track of spawn rates
 # maybe add fruit bait: placed with right click, nearby flys target it for easy kills, limited to 3 per run
 
-# dev high score: 84 points
+# edit hitboxes to use collision masks, adjust code accordingly
+# added 1440p and 4k options to windowed mode
+
+# dev high score: 97 points
 #endregion
 
 # Called when the node enters the scene tree for the first time.

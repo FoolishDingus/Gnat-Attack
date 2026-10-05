@@ -10,7 +10,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN # mouse can't leave window during gameplay, swatter will show where mouse is
 	#await get_tree().create_timer(2).timeout
 	
-	#print(str($Spawners.get_children())) #
+	#print(str($Spawners.get_children()))
 
 # called whenever a fly or flower dies
 func update_hud():

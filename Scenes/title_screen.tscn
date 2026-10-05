@@ -83,8 +83,10 @@ alignment = 1
 [node name="GnatAttackLogo" type="Sprite2D" parent="." unique_id=1692917447]
 texture_filter = 1
 position = Vector2(320, 100)
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_klylv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=727098001]
+offset = Vector2(320, 180)
 
 [connection signal="button_up" from="ColorRect/PlayButton" to="." method="play_button"]
 [connection signal="button_up" from="ColorRect/ExitButton" to="." method="exit_button"]

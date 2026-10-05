@@ -153,12 +153,14 @@ text = "Main Menu"
 [node name="FlyRender" type="Sprite2D" parent="." unique_id=1068139615]
 texture_filter = 1
 position = Vector2(492.99997, 286.99997)
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_488pv")
 
 [node name="GameOverSFX" type="AudioStreamPlayer" parent="." unique_id=544384564]
 stream = ExtResource("3_go37l")
 volume_db = -5.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=128638214]
+offset = Vector2(320, 180)
 
 [connection signal="button_up" from="RetryButton" to="." method="retry_button"]
 [connection signal="button_up" from="MenuButton" to="." method="menu_button"]
